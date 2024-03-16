@@ -12,7 +12,7 @@ import java.util.Date;
 // time
 
 @RestController
-@RequestMapping("/paypal")
+@RequestMapping("/paying")
 public class payController {
 
    private final payServices payServices;
