@@ -1,7 +1,6 @@
 package com.payment.payment;
 
-import org.example.Body;
-import org.example.Response;
+import org.example.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,6 @@ import java.util.Date;
 @RestController
 @RequestMapping("/paying")
 public class payController {
-
    private final payServices payServices;
     @Autowired
     public payController(payServices payServices){
@@ -23,7 +21,7 @@ public class payController {
     @PostMapping("/pay")
     public Response Pay(@RequestBody Body body)
     {
-        Response response = new Response(body.getAmount(),new Date(), Response.responseType.processing);
+       Response response= payServices.Pay(body);
         return  response;
     }
 }
